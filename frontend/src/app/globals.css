@@ -1,0 +1,267 @@
+@import "tailwindcss";
+
+/* =============================================
+   DESIGN TOKENS
+   Inspired by steipete.me editorial aesthetic
+   ============================================= */
+
+:root,
+html[data-theme="light"] {
+  --background: #fdfdfd;
+  --foreground: #1a1a1a;
+  --foreground-muted: #555555;
+  --accent: #0070f3;
+  --muted: #f0f0f0;
+  --border: #e5e5e5;
+}
+
+html[data-theme="dark"] {
+  --background: #111111;
+  --foreground: #ebebeb;
+  --foreground-muted: #a0a0a0;
+  --accent: #f97316;
+  --muted: #1e1e1e;
+  --border: #2a2a2a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --font-mono: "Geist Mono", "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/* =============================================
+   BASE RESET
+   ============================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 1.7;
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* =============================================
+   TYPOGRAPHY & LINKS
+   ============================================= */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* =============================================
+   ACTIVE NAV — wavy underline (steipete style)
+   ============================================= */
+.active-nav {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+  color: var(--accent);
+}
+
+/* =============================================
+   RESPONSIVE NAVBAR HELPERS
+   ============================================= */
+.mobile-only {
+  display: none !important;
+}
+
+.mobile-only-block {
+  display: none !important;
+}
+
+@media (max-width: 580px) {
+  #desktop-nav {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: flex !important;
+  }
+
+  .mobile-only-block {
+    display: flex !important;
+  }
+}
+
+/* =============================================
+   HORIZONTAL RULE
+   ============================================= */
+hr.site-hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+/* =============================================
+   SELECTION
+   ============================================= */
+::selection {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+/* =============================================
+   SCROLLBAR (dark mode)
+   ============================================= */
+html[data-theme="dark"] ::-webkit-scrollbar {
+  width: 6px;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+/* =============================================
+   SMOOTH TRANSITIONS
+   ============================================= */
+a,
+button,
+svg {
+  transition: color 0.15s ease, opacity 0.15s ease, background-color 0.15s ease;
+}
+
+/* =============================================
+   PROSE — blog post body typography
+   ============================================= */
+.prose {
+  color: var(--foreground);
+  line-height: 1.8;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  color: var(--foreground);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.prose h1 {
+  font-size: 1.6rem;
+}
+
+.prose h2 {
+  font-size: 1.3rem;
+}
+
+.prose h3 {
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+.prose p {
+  margin-bottom: 1.25rem;
+}
+
+.prose a {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 4px;
+}
+
+.prose a:hover {
+  color: var(--accent);
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1rem;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--muted);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+  color: var(--foreground);
+}
+
+.prose pre {
+  background: var(--muted);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.prose pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.9em;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose li {
+  margin-bottom: 0.3rem;
+}
+
+.prose li::marker {
+  color: var(--accent);
+}
+
+.prose strong {
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  margin: 1.5rem auto;
+  display: block;
+}
