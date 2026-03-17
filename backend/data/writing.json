@@ -1,0 +1,30 @@
+[
+    {
+        "id": "1",
+        "title": "Building Reliable ML Pipelines: Lessons from Production",
+        "description": "Practical patterns for designing ML pipelines that don't break at 3 AM. Covers idempotency, retry strategies, and monitoring.",
+        "date": "2025-11-15",
+        "url": "#"
+    },
+    {
+        "id": "2",
+        "title": "Feature Stores: When You Need One and When You Don't",
+        "description": "A pragmatic guide to evaluating whether your team actually needs a feature store, and what to build if you do.",
+        "date": "2025-08-22",
+        "url": "#"
+    },
+    {
+        "id": "3",
+        "title": "Low-Latency Model Serving with FastAPI and ONNX Runtime",
+        "description": "Technical deep-dive into optimizing model inference for real-time applications, including batching strategies and GPU utilization.",
+        "date": "2025-05-10",
+        "url": "#"
+    },
+    {
+        "id": "4",
+        "title": "The Case for Boring ML Infrastructure",
+        "description": "Why choosing proven, simple infrastructure patterns often outperforms chasing the latest MLOps trends.",
+        "date": "2025-02-18",
+        "url": "#"
+    }
+]

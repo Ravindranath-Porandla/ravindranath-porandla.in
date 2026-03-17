@@ -1,0 +1,41 @@
+{
+    "programming": [
+        "Python",
+        "TypeScript",
+        "Go",
+        "SQL",
+        "Bash"
+    ],
+    "mlai": [
+        "PyTorch",
+        "TensorFlow",
+        "Hugging Face",
+        "scikit-learn",
+        "ONNX",
+        "LangChain"
+    ],
+    "backend": [
+        "FastAPI",
+        "PostgreSQL",
+        "Redis",
+        "gRPC",
+        "Apache Kafka",
+        "Celery"
+    ],
+    "infra": [
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "AWS",
+        "GCP",
+        "GitHub Actions"
+    ],
+    "tools": [
+        "Git",
+        "Linux",
+        "MLflow",
+        "Weights & Biases",
+        "Prometheus",
+        "Grafana"
+    ]
+}

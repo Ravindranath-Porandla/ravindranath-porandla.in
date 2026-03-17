@@ -1,0 +1,31 @@
+# ─────────────────────────────────────────────────────────────
+# FastAPI Backend — Requirements
+# ─────────────────────────────────────────────────────────────
+
+# Web framework
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+
+# Pydantic
+pydantic==2.9.2
+pydantic-settings==2.2.1
+email-validator==2.1.0
+
+# Database (async PostgreSQL)
+sqlalchemy==2.0.36
+asyncpg==0.29.0
+alembic==1.13.3
+
+# Auth
+python-jose[cryptography]==3.3.0
+bcrypt==4.0.1
+python-multipart==0.0.12
+
+# Rate limiting
+slowapi==0.1.9
+
+# Environment
+python-dotenv==1.0.1
+
+# Utilities
+python-slugify==8.0.4

@@ -1,0 +1,38 @@
+[
+    {
+        "id": "1",
+        "company": "Acme AI Labs",
+        "role": "Senior AI Engineer",
+        "duration": "2023 — Present",
+        "achievements": [
+            "Architected and deployed ML pipeline orchestration system processing 5M+ records daily",
+            "Reduced model deployment cycle time from 5 days to 8 hours",
+            "Led migration from monolithic model serving to microservice-based inference platform",
+            "Mentored 3 junior engineers on ML systems design and best practices"
+        ]
+    },
+    {
+        "id": "2",
+        "company": "DataFlow Inc.",
+        "role": "AI Engineer",
+        "duration": "2021 — 2023",
+        "achievements": [
+            "Built real-time inference API serving 10,000+ predictions per second at sub-50ms latency",
+            "Developed feature store platform adopted by 5 ML teams, reducing feature dev time by 60%",
+            "Implemented automated model monitoring that detected production drift in under 2 hours",
+            "Contributed to open-source ML tooling used by 200+ organizations"
+        ]
+    },
+    {
+        "id": "3",
+        "company": "NeuralSoft",
+        "role": "ML Engineer",
+        "duration": "2019 — 2021",
+        "achievements": [
+            "Designed NLP pipeline for document intelligence, automating 70% of manual review tasks",
+            "Fine-tuned transformer models achieving 94% accuracy on domain-specific entity extraction",
+            "Built data labeling and annotation tools that accelerated dataset creation by 3x",
+            "Established ML experiment tracking practices using MLflow across the engineering team"
+        ]
+    }
+]
