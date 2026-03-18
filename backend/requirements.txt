@@ -3,29 +3,29 @@
 # ─────────────────────────────────────────────────────────────
 
 # Web framework
-fastapi==0.115.0
-uvicorn[standard]==0.30.6
+fastapi==0.115.12
+uvicorn[standard]==0.34.0
 
-# Pydantic
-pydantic==2.9.2
-pydantic-settings==2.2.1
-email-validator==2.1.0
+# Pydantic (2.11+ has pre-built wheels for Python 3.13/3.14)
+pydantic==2.11.1
+pydantic-settings==2.7.1
+email-validator==2.2.0
 
 # Database (async PostgreSQL)
-sqlalchemy==2.0.36
-asyncpg==0.29.0
-alembic==1.13.3
+sqlalchemy==2.0.40
+asyncpg==0.30.0
+alembic==1.15.1
 
 # Auth
 python-jose[cryptography]==3.3.0
 bcrypt==4.0.1
-python-multipart==0.0.12
+python-multipart==0.0.20
 
 # Rate limiting
 slowapi==0.1.9
 
 # Environment
-python-dotenv==1.0.1
+python-dotenv==1.1.0
 
 # Utilities
 python-slugify==8.0.4
