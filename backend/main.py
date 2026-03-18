@@ -121,3 +121,36 @@ async def root():
 async def health_check():
     """Railway / uptime-robot health check endpoint."""
     return {"status": "ok"}
+
+
+@app.get("/debug/db", tags=["Health"])
+async def debug_db():
+    """Temporary: test DB connection and return the actual error if any."""
+    import traceback
+    from sqlalchemy import text
+    from app.core.database import engine, _connect_args
+    from app.core.config import settings
+    try:
+        async with engine.connect() as conn:
+            result = await conn.execute(text("SELECT 1 AS ok"))
+            row = result.fetchone()
+        return {
+            "status": "ok",
+            "db_result": row[0],
+            "environment": settings.environment,
+            "is_production": settings.is_production,
+            "ssl_args": str(_connect_args),
+            "db_url_prefix": settings.database_url[:40] + "...",
+        }
+    except Exception as e:
+        return {
+            "status": "error",
+            "error_type": type(e).__name__,
+            "error": str(e),
+            "trace": traceback.format_exc()[-800:],
+            "environment": settings.environment,
+            "is_production": settings.is_production,
+            "ssl_args": str(_connect_args),
+            "db_url_prefix": settings.database_url[:40] + "...",
+        }
+

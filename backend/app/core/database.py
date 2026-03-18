@@ -3,19 +3,20 @@ from sqlalchemy.orm import DeclarativeBase
 from app.core.config import settings
 
 # Supabase (and most managed Postgres) requires SSL in production.
-# asyncpg needs it passed via connect_args.
-_connect_args = {"ssl": "require"} if settings.is_production else {}
+# asyncpg accepts ssl=True or an SSLContext — NOT the string "require".
+_connect_args = {"ssl": True} if settings.is_production else {}
 
 # Async engine
 engine = create_async_engine(
     settings.database_url,
-    echo=settings.environment == "development",
+    echo=False,
     pool_pre_ping=True,
-    pool_size=5,
-    max_overflow=10,
+    pool_size=3,
+    max_overflow=5,
     pool_recycle=1800,
     connect_args=_connect_args,
 )
+
 
 
 # Session factory
