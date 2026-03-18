@@ -27,4 +27,4 @@ services:
       - key: REFRESH_TOKEN_EXPIRE_DAYS
         value: 7
       - key: ALLOWED_ORIGINS
-        value: https://ravindranath-porandla.in,https://www.ravindranath-porandla.in,https://ravindranath-porandla.vercel.app
+        value: http://localhost:3000,https://ravindranath-porandla-in.onrender.com,https://ravindranath-porandla.vercel.app,https://ravindranath-porandla.in,https://www.ravindranath-porandla.in
