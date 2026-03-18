@@ -132,25 +132,30 @@ async def debug_db():
     from app.core.config import settings
     try:
         async with engine.connect() as conn:
-            result = await conn.execute(text("SELECT 1 AS ok"))
-            row = result.fetchone()
+            await conn.execute(text("SELECT 1 AS ok"))
+            # Check which tables exist
+            tables_result = await conn.execute(text(
+                "SELECT table_name FROM information_schema.tables WHERE table_schema='public' ORDER BY table_name"
+            ))
+            tables = [row[0] for row in tables_result.fetchall()]
+            # Check admin user count if table exists
+            admin_count = None
+            if "admin_users" in tables:
+                r = await conn.execute(text("SELECT COUNT(*) FROM admin_users"))
+                admin_count = r.scalar()
         return {
             "status": "ok",
-            "db_result": row[0],
             "environment": settings.environment,
-            "is_production": settings.is_production,
-            "ssl_args": str(_connect_args),
-            "db_url_prefix": settings.database_url[:40] + "...",
+            "tables": tables,
+            "admin_users_count": admin_count,
+            "db_url_prefix": settings.database_url[:45] + "...",
         }
     except Exception as e:
         return {
             "status": "error",
             "error_type": type(e).__name__,
             "error": str(e),
-            "trace": traceback.format_exc()[-800:],
-            "environment": settings.environment,
-            "is_production": settings.is_production,
-            "ssl_args": str(_connect_args),
-            "db_url_prefix": settings.database_url[:40] + "...",
+            "trace": traceback.format_exc()[-600:],
         }
+
 
